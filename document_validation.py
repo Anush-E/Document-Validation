@@ -6,6 +6,8 @@
     from nltk import tokenize
     from nltk.corpus import wordnet 
     import pandas as pd
+    import time
+    start_time = time.time()
     
     
     #############################################################################################
@@ -234,6 +236,20 @@
     text_original = """Photosynthesis is faster than respiration. Photosynthesis is the process by which plants prepare their own food with the help of sunlight, carbondioxide, chlorophyll and water. Photosynthesis takes place at night."""
     #text_original = "Ram is a boy. He is good"
     #text_original = """The company requires staff to watch a safety video every year"""
+    
+    
+    
+    #text_original = "The process by which plants prepare their food is Photosynthesis"
+    #text_original = "The process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class"
+    #text_original = "The process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night"
+    #text_original  = "The process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning."
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet."
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet and do not underestimate the power of common man in India"
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet and do not underestimate the power of common man in India and what would you like to have for lunch and dinner today"    
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet and do not underestimate the power of common man in India and what would you like to have for lunch and dinner today and why do you have to look me like that"    
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet and do not underestimate the power of common man in India and what would you like to have for lunch and dinner today and why do you have to look me like that and I really wanted to ask you if you are single"    
+    #text_original  = "The easiest language in the entire world is Python and the process by which plants prepare their food is Photosynthesis and Ram is the strongest and bravest boy in the entire class and Photosynthesis usually takes place at night and at the morning and Rani eats only oats and ragi since she is in diet and do not underestimate the power of common man in India and what would you like to have for lunch and dinner today and why do you have to look me like that and I really wanted to ask you if you are single and do you really know the fact that he is a rockstar"    
+    #text_original = "Ram is a boy. Sita is a girl. Raj talk fast. Sara walk slow"
     print("\nOriginal Text: ",text_original)
     
     global dependency_text
@@ -256,6 +272,18 @@
     #text_given = "Prepare food sunlight chlorophyll water. night"
     #text_given = "Ram is a boy. He is good"
     #text_given = "The staff are required by the company to watch a safety video every year"
+    
+    #text_given = "Photosynthesis is the process by which plants prepare their food"
+    #text_given = "Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in entire class"
+    #text_given = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class"
+    #text_given = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and Rani eats only ragi and oats since she is in diet"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and do not underestimate the power of common man in India and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and do not underestimate the power of common man in India and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world and for lunch and dinner, what would you like to have today"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and do not underestimate the power of common man in India and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world and for lunch and dinner, what would you like to have today and why do you have to look me like that"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and do not underestimate the power of common man in India and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world and for lunch and dinner, what would you like to have today and why do you have to look me like that and I really wanted to ask you if you are single"
+    #text_given  = "Photosynthesis usually takes place at night and at the morning and Photosynthesis is the process by which plants prepare their food and Ram is the bravest and strongest boy in the class and do not underestimate the power of common man in India and Rani eats only ragi and oats since she is in diet and python is the easiest programming language in the entire world and for lunch and dinner, what would you like to have today and why do you have to look me like that and I really wanted to ask you if you are single and do you really know the fact that he is a rockstar"
+    #text_given = "Ram is not a boy. Sita is not a girl. Raj does not talk fast. Sara doesn't walk slow"
 
     print("\nGiven Text: ",text_given)
     
@@ -267,8 +295,19 @@
     
     given_list3 = given_list2
     
+    key_answer = [{('NAN','plants', 'prepare', 'food') : 1, ('NAN','carbondioxide'):0.25, ('NAN','water') : 0.25 , ('NAN','chlorophyll') : 0.25, ('NAN','sunlight') : 0.25},{('NAN','takes','place','night') : 0.5},{('NAN','faster','than','respiration') : 0.5}]
     
-    #---------------------------------------------------------------------------------------------#
+    #key_answer = [{('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1}]
+    #key_answer = [{('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1}]
+    #key_answer = [{('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1}]
+    #key_answer = [{('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,}]
+    #key_answer = [{('NAN','Python'):1,('NAN','easiest'):1,('NAN','language'):1,('NAN','world'):1,('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,}]
+    #key_answer = [{('NAN','Python'):1,('NAN','easiest'):1,('NAN','language'):1,('NAN','world'):1,('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,('NAN','do'):1,('NAN','underestimate'):1,('NAN','power'):1,('NAN','India'):1,('NAN','comman'):1,('NAN','man'):1,('NAN','what'):1,('NAN','would'):1,('NAN','you'):1,('NAN','like'):1,('NAN','have'):1,('NAN','lunch'):1,('NAN','today'):1}]
+    #key_answer = [{('NAN','Python'):1,('NAN','easiest'):1,('NAN','language'):1,('NAN','world'):1,('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,('NAN','do'):1,('NAN','underestimate'):1,('NAN','power'):1,('NAN','India'):1,('NAN','comman'):1,('NAN','man'):1,('NAN','what'):1,('NAN','would'):1,('NAN','you'):1,('NAN','like'):1,('NAN','have'):1,('NAN','lunch'):1,('NAN','today'):1,('NAN','me'):1,('NAN','why'):1, ('NAN','look'):1,('NAN','have'):1,('NAN','you'):1,('NAN','that'):1}]
+    #key_answer = [{('NAN','Python'):1,('NAN','easiest'):1,('NAN','language'):1,('NAN','world'):1,('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,('NAN','do'):1,('NAN','underestimate'):1,('NAN','power'):1,('NAN','India'):1,('NAN','comman'):1,('NAN','man'):1,('NAN','what'):1,('NAN','would'):1,('NAN','you'):1,('NAN','like'):1,('NAN','have'):1,('NAN','lunch'):1,('NAN','today'):1,('NAN','me'):1,('NAN','why'):1, ('NAN','look'):1,('NAN','have'):1,('NAN','you'):1,('NAN','that'):1,('NAN','I'):1,('NAN','really'):1,('NAN','wanted'):1,('NAN','ask'):1,('NAN','you'):1,('NAN','are'):1,('NAN','really'):1,('NAN','single'):1}]
+    #key_answer = [{('NAN','Python'):1,('NAN','easiest'):1,('NAN','language'):1,('NAN','world'):1,('NAN','by'):1,('NAN','process'):1,('NAN','Photosynthesis'):1,('NAN','is'):1,('NAN','which'):1,('NAN','their'):1,('NAN','prepare'):1,('NAN','plants'):1,('NAN','food'):1,('NAN','night'):1,('NAN','morning'):1,('NAN','takes'):1,('NAN','place'):1,('NAN','at'):1,('NAN','Ram'):1,('NAN','is'):1,('NAN','smartest'):1,('NAN','bravest'):1,('NAN','boy'):1,('NAN','in'):1,('NAN','class'):1,('NAN','Rani'):1,('NAN','eats'):1,('NAN','oats'):1,('NAN','ragi'):1,('NAN','only'):1,('NAN','since'):1,('NAN','she'):1,('NAN','diet'):1,('NAN','do'):1,('NAN','underestimate'):1,('NAN','power'):1,('NAN','India'):1,('NAN','comman'):1,('NAN','man'):1,('NAN','what'):1,('NAN','would'):1,('NAN','you'):1,('NAN','like'):1,('NAN','have'):1,('NAN','lunch'):1,('NAN','today'):1,('NAN','me'):1,('NAN','why'):1, ('NAN','look'):1,('NAN','have'):1,('NAN','you'):1,('NAN','that'):1,('NAN','I'):1,('NAN','really'):1,('NAN','wanted'):1,('NAN','ask'):1,('NAN','you'):1,('NAN','are'):1,('NAN','really'):1,('NAN','single'):1,('NAN','know'):1,('NAN','fact'):1,('NAN','that'):1,('NAN','he'):1,('NAN','rockstar'):1,('NAN','do'):1,('NAN','you'):1}]
+    #key_answer = [{('NAN','Ram','is','boy'):1},{('NAN','Sita','is','girl'):1},{('NAN','Raj','talk','fast'):1},{('NAN','Sara','walk','slow'):1}]
+   #---------------------------------------------------------------------------------------------#
     
     ''''count = 0
     for i in dependency_text_original:
@@ -340,14 +379,10 @@
             if j[3]!= "ROOT":
                 root1 = j[0]
                 for j in i:
-                    try:
-                        if j[2] == root1 and j[0]!= root1 and j[0] not in repeat:
-                            given_list3[k][l].append(j)
-                            l=l+1
-                            repeat.append(j[0])
-                    except IndexError:
-                        continue
-                    
+                    if j[2] == root1 and j[0]!= root1 and j[0] not in repeat:
+                        given_list3[k][l].append(j)
+                        l=l+1
+                        repeat.append(j[0]) 
         k=k+1
         
     given_list4 = [[x for x in c if x] for c in given_list3]
@@ -360,7 +395,6 @@
     pobj  = ['compound', 'conj', 'pobj']
     #unwanted = ['cc','preconj','prep','auxpass','aux','punct']
     unwanted = []
-    key_answer = [{('NAN','plants', 'prepare', 'food') : 1, ('NAN','carbondioxide'):0.25, ('NAN','water') : 0.25 , ('NAN','chlorophyll') : 0.25, ('NAN','sunlight') : 0.25},{('NAN','takes','place','night') : 0.5},{('NAN','faster','than','respiration') : 0.5}]
 
  
     
@@ -393,8 +427,12 @@
             for k in key_answer[i]:
                 for o in k[1:]:
                     for r in original_list4[j]:
+                        
                         if(o==r[0][0]):
-                            checklist2[i][n].append(r[0])
+                            try:
+                                checklist2[i][n].append(r[0])
+                            except IndexError:
+                                pass
                 n = n+1
 
         
@@ -432,11 +470,17 @@
         for m in match_rate1[i]:
             for j,(h,s) in zip(checklist3[i],f.items()):
                 match_list = []
+                negg = 0
+                nego = 0
                 for k in j:
                     for n in given_list4[m]:
+                        if n[0][3] == 'neg':
+                            nego = 1
+                        if k[3] == 'neg':
+                            negg = 1
                         if(k[0]==n[0][0] and k[3] not in unwanted and n[0][3] not in unwanted):
                             if(k[3] == n[0][3] or (k[3] in nsubj and n[0][3] in nsubj) or (k[3] in pobj and n[0][3] in pobj)):
-                                print(n[0][0])
+                                #print(n[0][0])
                                 match = 1
                                 break
                             else:
@@ -458,14 +502,17 @@
                                 else:
                                     absent = 1
                                     break
-                            if absent == 0:
+                            if absent == 0 and ((negg == 0 and nego == 0) or (negg==1 and nego==1)):
                                 score = score + q[j]
+
                 else:
                     continue
             
     print(score)
 
-    if not feedback:
+    if not feedback and score != 0:
         print("Feedback: Your answer is correct")
     else:
         print("You missed your marks here: ",feedback)
+
+    print("--- %s seconds ---" % (time.time() - start_time))    
